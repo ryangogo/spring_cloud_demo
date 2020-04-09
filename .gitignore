@@ -1,0 +1,7 @@
+# Project exclude paths
+/eureka_server/target/
+/eureka_server_2/*
+/order_service/target/
+/product_service/target/
+/*/*.iml
+*.idea

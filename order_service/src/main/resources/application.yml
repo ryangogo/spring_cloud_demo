@@ -1,0 +1,32 @@
+server:
+  port: 9975
+spring:
+  application:
+    name: service-order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.107.50.176:3306/shop?useUnicode=true&characterEncoding=utf8
+    username: ryan
+    password: ryan
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+#配置eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9009/eureka/
+  instance:
+    prefer-ip-address: true #使用ip地址进行注册
+
+#配置feign的日志输出
+#日志配置 NONE：不输出日志(高) BASIC：适用于生产环境追踪日志 #HEADERS：在basic的基础上记录请求和响应头信息
+feign:
+  client:
+    config:
+      service-product: #需要配置的服务名称
+        loggerLevel: FULL
+logging:
+  level:
+    cn.itcast.order.fegin.ProductFeignClient: debug
